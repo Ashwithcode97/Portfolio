@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amit Pandey - Professional Portfolio</title>
+    <link rel="stylesheet" type="text/css" href="project.css">
+    <link rel="stylesheet" type="text/css" href="language.css">
+    <link rel="stylesheet" type="text/css" href="about.css">
+    <link rel="stylesheet" type="text/css" href="contact.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        header {
+            position: fixed;
+            width: 100%;
+            background-color: #1e1e2f;
+            color: white;
+            padding: 10px 20px;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+            padding: 8px 12px;
+            position: relative;
+            transition: color 0.3s ease-in-out;
+        }
+
+        nav ul li a:hover::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background-color: #4facfe;
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease-in-out;
+        }
+        
+        /* Hero Section */
+        #hero {
+            height: 100vh;
+            background: url('imageadmin1.png') no-repeat center center/cover;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            color: white;
+            text-align: center;
+        }
+
+        #hero::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        #hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        #hero-content h1 {
+            font-size: 3rem;
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        #hero-content p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+       
+        /* Education Section */
+        #education {
+            padding: 80px 20px;
+/*            background-color: #f4f4f4;*/
+background: linear-gradient(135deg, #dfe9f3, #ffffff);
+
+            box-shadow: 1px 1px 2px 1px dimgray;
+        }
+
+        #education h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #333;
+        }
+
+        .timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            background: #4facfe;
+            top: 0;
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            margin-bottom: 40px;
+            position: relative;
+            width: 50%;
+        }
+
+        .timeline-item.left {
+            left: 0;
+            text-align: right;
+        }
+
+        .timeline-item.right {
+            left: 50%;
+            text-align: left;
+        }
+
+        .timeline-item-content {
+            padding: 20px;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            position: relative;
+        }
+
+        /* Contact Section */
+        #contact {
+            box-shadow: 1px 1px 1px 2px dimgray;
+            padding: 80px 20px;
+/*            background: url('imageadmin1.png') no-repeat center center/cover;*/
+            opacity: 0.3px;
+
+            text-align: center;
+        }
+
+        #contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .contact-info div {
+/*            background: #f4f4f4;*/
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            text-align: center;
+        }
+
+        .contact-info i {
+            font-size: 2rem;
+            color: #4facfe;
+            margin-bottom: 10px;
+        }
+
+        .social-links {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .social-links a {
+            font-size: 2rem;
+            color: #4facfe;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .social-links a:hover {
+            color: #00f2fe;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                gap: 10px;
+                background-color: #1e1e2f;
+                position: absolute;
+                width: 100%;
+                left: 0;
+                top: 60px;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 40px;
+            }
+
+            .timeline-item.left,
+            .timeline-item.right {
+                left: 0;
+                text-align: left;
+            }
+
+            .contact-info {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-code"></i> Amit Pandey
+            </div>
+            <ul id="menu">
+                <li><a href="#hero"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#about"><i class="fas fa-user"></i> About / Skills</a></li>
+                <li><a href="#education"><i class="fas fa-graduation-cap"></i> Education</a></li>
+                <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+
+            </ul>
+            
+</button>
+
+        </nav>
+    </header>
+    <!-- Hero Section -->
+    <section id="hero">
+        <div id="hero-content">
+            <h1>Hi, I'm Amit Pandey</h1>
+            <p>Full Stack Developer | Software Engineer</p>
+        </div>
+    </section>
+  
+    <!-- About / Skills Section -->
+    <section id="about">
+        <h2>About Me</h2>
+        <p>
+            I am a passionate full-stack developer specializing in creating advanced, scalable web applications. I focus
+            on building seamless user experiences using the latest frontend and backend technologies.
+        </p>
+    </section>
+
+
+     <!-- language section -->
+    <section id="languages">
+    <div class="languages-container">
+        <h2> Skills </h2>
+        <div class="skills-container">
+            <!-- Language Template -->
+            <div class="skill-box" data-percent="95" data-name="HTML">
+                <div class="circle">
+                    <svg width="100" height="100">
+                        <circle cx="50" cy="50" r="45"></circle>
+                        <circle cx="50" cy="50" r="45" class="progress"></circle>
+                    </svg>
+                    <div class="percentage">95%</div>
+                </div>
+                <p>HTML</p>
+            </div>
+
+            <div class="skill-box" data-percent="90" data-name="CSS">
+                <div class="circle">
+                    <svg width="100" height="100">
+                        <circle cx="50" cy="50" r="45"></circle>
+                        <circle cx="50" cy="50" r="45" class="progress"></circle>
+                    </svg>
+                    <div class="percentage">90%</div>
+                </div>
+                <p>CSS</p>
+            </div>
+
+            <div class="skill-box" data-percent="85" data-name="JavaScript">
+                <div class="circle">
+                    <svg width="100" height="100">
+                        <circle cx="50" cy="50" r="45"></circle>
+                        <circle cx="50" cy="50" r="45" class="progress"></circle>
+                    </svg>
+                    <div class="percentage">85%</div>
+                </div>
+                <p>JavaScript</p>
+            </div>
+
+            <div class="skill-box" data-percent="85" data-name="React">
+                <div class="circle">
+                    <svg width="100" height="100">
+                        <circle cx="50" cy="50" r="45"></circle>
+                        <circle cx="50" cy="50" r="45" class="progress"></circle>
+                    </svg>
+                    <div class="percentage">85%</div>
+                </div>
+                <p>React</p>
+            </div>
+
+            <div class="skill-box" data-percent="80" data-name="Vue.js">
+                <div class="circle">
+                    <svg width="100" height="100">
+                        <circle cx="50" cy="50" r="45"></circle>
+                        <circle cx="50" cy="50" r="45" class="progress"></circle>
+                    </svg>
+                    <div class="percentage">80%</div>
+                </div>
+                <p>Vue.js</p>
+            </div>
+
+            <div class="skill-box" data-percent="90" data-name="Python">
+                <div class="circle">
+                    <svg width="100" height="100">
+                        <circle cx="50" cy="50" r="45"></circle>
+                        <circle cx="50" cy="50" r="45" class="progress"></circle>
+                    </svg>
+                    <div class="percentage">90%</div>
+                </div>
+                <p>Python</p>
+            </div>
+
+            <div class="skill-box" data-percent="80" data-name="Django">
+                <div class="circle">
+                    <svg width="100" height="100">
+                        <circle cx="50" cy="50" r="45"></circle>
+                        <circle cx="50" cy="50" r="45" class="progress"></circle>
+                    </svg>
+                    <div class="percentage">80%</div>
+                </div>
+                <p>Django</p>
+            </div>
+
+            <div class="skill-box" data-percent="75" data-name="Java">
+                <div class="circle">
+                    <svg width="100" height="100">
+                        <circle cx="50" cy="50" r="45"></circle>
+                        <circle cx="50" cy="50" r="45" class="progress"></circle>
+                    </svg>
+                    <div class="percentage">75%</div>
+                </div>
+                <p>Java</p>
+            </div>
+
+            <div class="skill-box" data-percent="70" data-name="C++">
+                <div class="circle">
+                    <svg width="100" height="100">
+                        <circle cx="50" cy="50" r="45"></circle>
+                        <circle cx="50" cy="50" r="45" class="progress"></circle>
+                    </svg>
+                    <div class="percentage">70%</div>
+                </div>
+                <p>C++</p>
+            </div>
+
+            <div class="skill-box" data-percent="85" data-name="MySQL">
+                <div class="circle">
+                    <svg width="100" height="100">
+                        <circle cx="50" cy="50" r="45"></circle>
+                        <circle cx="50" cy="50" r="45" class="progress"></circle>
+                    </svg>
+                    <div class="percentage">85%</div>
+                </div>
+                <p>MySQL</p>
+            </div>
+
+            <div class="skill-box" data-percent="80" data-name="TypeScript">
+                <div class="circle">
+                    <svg width="100" height="100">
+                        <circle cx="50" cy="50" r="45"></circle>
+                        <circle cx="50" cy="50" r="45" class="progress"></circle>
+                    </svg>
+                    <div class="percentage">80%</div>
+                </div>
+                <p>TypeScript</p>
+            </div>
+
+            <div class="skill-box" data-percent="85" data-name="Git & GitHub">
+                <div class="circle">
+                    <svg width="100" height="100">
+                        <circle cx="50" cy="50" r="45"></circle>
+                        <circle cx="50" cy="50" r="45" class="progress"></circle>
+                    </svg>
+                    <div class="percentage">85%</div>
+                </div>
+                <p>Git & GitHub</p>
+            </div>
+        </div>
+    </div>
+</section>
+ 
+
+    <!-- Projects Section -->
+<section id="projects">
+    <h2>My Projects</h2>
+    <div class="project-container">
+        <!-- Project 1 -->
+        <div class="project-card">
+            <img src=".png" alt="Project 1">
+            <h3>E-Commerce Platform</h3>
+            <p>Built a fully responsive e-commerce platform using React.</p>
+            <a href="https://github.com/amitpandey/ecommerce" target="_blank">View on GitHub</a>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card">
+            <img src="images/project2.png" alt="Project 2">
+            <h3>Task Manager App</h3>
+            <p>A task management application built with Django and Vue.js.</p>
+            <a href="https://github.com/amitpandey/task-manager" target="_blank">View on GitHub</a>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card">
+            <img src="images/project3.png" alt="Project 3">
+            <h3>Portfolio Website</h3>
+            <p>Personal portfolio showcasing my projects and skills using HTML, CSS, and JavaScript.</p>
+            <a href="https://github.com/amitpandey/portfolio" target="_blank">View on GitHub</a>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="project-card">
+            <img src="images/project4.png" alt="Project 4">
+            <h3>Blog CMS</h3>
+            <p>Developed a content management system with authentication using Flask and SQLAlchemy.</p>
+            <a href="https://github.com/amitpandey/blog-cms" target="_blank">View on GitHub</a>
+        </div>
+
+        
+    </div>
+</section>
+
+
+
+    <!-- Education Section -->
+    <section id="education">
+        <h2>Education</h2>
+        <div class="timeline">
+            <div class="timeline-item left">
+                <div class="timeline-item-content">
+                    <h3>Bachelor's in Information Technology</h3>
+                    <p>Mumbai University | 2022 - 2025</p>
+                </div>
+            </div>
+            <div class="timeline-item right">
+                <div class="timeline-item-content">
+                    <h3>Higher Secondary Education</h3>
+                    <p>Om Sai Junior College | 2021 - 2022</p>
+                </div>
+            </div>
+            <div class="timeline-item left">
+                <div class="timeline-item-content">
+                    <h3>Maharastra State Board</h3>
+                    <p>Gyan Sagar Junior College | 2019 - 2020</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  <!-- ==========================
+     📧 Advanced Contact Section (No Contact Info)
+========================== -->
+<section id="contact">
+    <h2 class="section-title">Get in Touch</h2>
+
+    <!-- Contact Form with Glassmorphism -->
+    <form id="contact-form" action="https://formspree.io/f/your-form-id" method="POST" class="fade-in">
+        <div class="form-group">
+            <label for="name"><i class="fas fa-user"></i> Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email"><i class="fas fa-envelope"></i> Your Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="message"><i class="fas fa-comment-alt"></i> Your Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Enter your message" required></textarea>
+        </div>
+
+        <!-- Submit Button with Animation -->
+        <button type="submit" class="btn-hover"><i class="fas fa-paper-plane"></i> Send Message</button>
+    </form>
+
+    <!-- Social Links with Bounce Effects -->
+    <div class="social-links">
+        <a href="https://github.com/amitpandey" target="_blank" aria-label="GitHub" class="bounce">
+            <i class="fab fa-github"></i>
+        </a>
+        <a href="https://www.facebook.com/amitpandey" target="_blank" aria-label="Facebook" class="bounce delay-1">
+            <i class="fab fa-facebook"></i>
+        </a>
+        <a href="https://wa.me/919876543210" target="_blank" aria-label="WhatsApp" class="bounce delay-2">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://www.instagram.com/amitpandey" target="_blank" aria-label="Instagram" class="bounce delay-3">
+            <i class="fab fa-instagram"></i>
+        </a>
+    </div>
+</section>
+
+    <footer>
+        <p>© 2025 Amit Pandey | All Rights Reserved.</p>
+    </footer>
+
+
+   <script type="text/javascript">
+       document.getElementById('menu-toggle').onclick = function () {
+    document.getElementById('menu').classList.toggle('active');
+   }
+   </script>
+   <script>
+    // Skill Progress Animation on Hover
+    document.querySelectorAll('.skill-box').forEach((box) => {
+        box.addEventListener('mouseenter', () => {
+            let percent = box.getAttribute('data-percent');
+            let circle = box.querySelector('.progress');
+            let offset = 283 - (percent / 100) * 283;
+            circle.style.strokeDashoffset = offset;
+        });
+    });
+</script>
+<script>
+document.getElementById('menu-toggle').onclick = function () {
+    document.getElementById('menu').classList.toggle('active');
+}
+</script>
+
+</body>
+
+</html>

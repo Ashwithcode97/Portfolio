@@ -1,0 +1,134 @@
+/* Global Styles */
+    #languages {
+        padding: 100px 20px;
+/*        background-color: #1e1e2f;*/
+        text-align: center;
+        background: linear-gradient(135deg, #dfe9f3, #ffffff);
+
+
+/*        box-shadow: 1px 1px 2px 1px dimgray;*/
+    }
+
+    .languages-container {
+        max-width: 1200px;
+        margin: 0 auto;
+
+    }
+
+    h2 {
+        font-size: 3.5rem;
+        color: #333;
+    }
+
+    /* Skills Grid */
+    .skills-container {
+        display: grid;
+
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 30px;
+
+        margin-top: 50px;
+
+    }
+
+    /* Skill Box */
+    .skill-box {
+/*        background: rgba(255, 255, 255, 0.05);*/
+
+/* background-color: gray;*/
+ opacity: 0.2px;
+        border-radius: 30px 20px;
+        box-shadow: 1px 1px 2px 1px dimgray;
+        padding: 20px;
+        text-align: center;
+/*        box-shadow: 0 10px 25px rgba(0, 255, 255, 0.1);*/
+        transition: all 0.3s ease-in-out;
+        position: relative;
+        overflow: hidden;
+        transform-style: preserve-3d;
+/*        background-color: #333;*/
+    }
+
+    
+    .skill-box p {
+        margin-top: 15px;
+        font-size: 1.2rem;
+        color: #333;
+        font-weight: bold;
+    }
+
+    /* Circular Progress Bars */
+    .circle {
+        position: relative;
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+
+    }
+
+    .circle svg {
+        width: 100%;
+        height: 100%;
+    }
+
+    .circle circle {
+        fill: none;
+        background: linear-gradient(135deg, #ff5f6d, #ffc371);
+
+/*        stroke: rgba(255, 255, 255, 0.1);*/
+
+        stroke-width: 10;
+        transform: rotate(-90deg);
+        transform-origin: 50% 50%;
+        box-shadow: 1px 1px 2px 1px dimgray;
+    }
+
+    .progress {
+        stroke: #333;
+        stroke-width: 10;
+        stroke-dasharray: 283;
+        stroke-dashoffset: 283;
+        transition: stroke-dashoffset 1.5s ease-in-out;
+    }
+
+    .percentage {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #333;
+    }
+
+    /* Skill Tooltip */
+    .skill-box::after {
+        content: attr(data-name);
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0, 234, 255, 0.8);
+        color: #333;
+        padding: 8px 12px;
+        font-size: 0.9rem;
+        border-radius: 8px;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+        pointer-events: none;
+    }
+
+    .skill-box:hover::after {
+        opacity: 1;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .skills-container {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+        }
+    }
